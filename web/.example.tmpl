@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tick Example</title>
+    </head>
+    <body>
+     	{{ $item := GetItem }}
+     	{{ Watch $item "track" }}
+     	{{ Tick $item }}
+
+     	<script>
+     	$tick.close = function(evt){
+     		console.log("connection closed")
+     	}
+     	
+     	//Tick Js function
+     	Tick({{ IdOf $item }} , function(data){
+     			console.log("Update")
+     	})
+     	</script>
+    </body>
+</html>

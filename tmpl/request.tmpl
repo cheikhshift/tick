@@ -1,0 +1,35 @@
+  <script async defer type="text/javascript">
+      if (typeof($tick) == "undefined"){
+        $tick = {}
+        function Tick(id,callb){
+            $tick[id] = callb;
+        }
+      }
+            (function() {
+                //var data = document.getElementById("fileData");
+                var conn = new WebSocket("ws://" + {{ .Host }} +"/tick-ws?token=" + {{ .Token }});
+                conn.onopen = function(){
+              //  conn.send("Ping!")
+                }
+                conn.onclose = function(evt) {
+                  //  data.textContent = 'Connection closed';
+                  if (typeof($tick.close) != "undefined" ) $tick.close(evt)
+                }
+                conn.onmessage = function(evt) {
+                    // console.log('file updated');
+                   // console.log(evt.data)
+                    var data = JSON.parse(evt.data);
+                    var elems = document.querySelectorAll('[data-id="' + data._id + '"]')
+                    for (var i = elems.length - 1; i >= 0; i--) {
+                      elem = elems[i]
+                      elem.textContent = data[elem.dataset.field];
+                    };
+                     if (typeof($tick[data._id]) != "undefined" ) {
+                        $tick[data._id](data);
+                     }
+                  //  console.log(elems)
+                  //  data.textContent = evt.data;
+                 //   conn.send("Ping!")
+                }
+            })();
+</script>
