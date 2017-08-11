@@ -16,6 +16,7 @@ Ticker supports templates by default. To use a Template function  within your `g
 
 ### Init and set MongoDB
 Add this snippet within your `<main>` tag. Copy the whole snippet if you're Gopher Sauce project has no main tag.
+		
 		<main>	
 		//Tick encryption key	
 		tick.Key = "example key 1234"
