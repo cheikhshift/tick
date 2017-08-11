@@ -16,8 +16,8 @@ Ticker supports templates by default. To use a Template function  within your `g
 
 ### Init and set MongoDB
 Add this snippet within your `<main>` tag. Copy the whole snippet if you're Gopher Sauce project has no main tag.
-				
-				//Tick encryption key	
+		<main>	
+		//Tick encryption key	
 		tick.Key = "example key 1234"
 		//HostName string syntax [host]:[port]
 		// var HostName string included on tick/gos.gxml import
@@ -25,7 +25,8 @@ Add this snippet within your `<main>` tag. Copy the whole snippet if you're Goph
 		// dbs included on tick/gos.gxml import
 		dbs,_ = db.Connect("localhost", "database")
 		tick.SetDb(dbs)
-
+		</main>
+		
 ### Declare DB Object pipeline
 Struct of `dbObjcet`. This Struct will be made available on `tick` import :
 
