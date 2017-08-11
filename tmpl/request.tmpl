@@ -14,6 +14,7 @@
                 conn.onclose = function(evt) {
                   //  data.textContent = 'Connection closed';
                   if (typeof($tick.close) != "undefined" ) $tick.close(evt)
+                    conn = new WebSocket("ws://" + {{ .Host }} +"/tick-ws?token=" + {{ .Token }});
                 }
                 conn.onmessage = function(evt) {
                     // console.log('file updated');
@@ -29,7 +30,7 @@
                      }
                   //  console.log(elems)
                   //  data.textContent = evt.data;
-                 //   conn.send("Ping!")
+                    conn.send("Ping!")
                 }
             })();
 </script>
