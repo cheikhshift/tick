@@ -128,7 +128,7 @@ func writer(ws *websocket.Conn,collection string, id string ) {
 	}()*/
 	//var temp string
 	//	temp = ""
-
+	for {
 		
 				//ws.SetWriteDeadline(time.Now().Add(writeWait))
 				//get obj
@@ -141,7 +141,7 @@ func writer(ws *websocket.Conn,collection string, id string ) {
 					fmt.Println("Socket Error : " ,err.Error())
 				}
 				time.Sleep(filePeriod)
-				writer(ws, collection,id)
+	}
 	
 }
 
@@ -157,8 +157,9 @@ func ServeWs(w http.ResponseWriter, r *http.Request) {
 
 	path := strings.Split(Decrypt([]byte(Key), r.FormValue("token")), ",")
 
+
 	go writer(ws, path[0], path[1])
-	//go reader(ws)
+	reader(ws)
 }
 
 
