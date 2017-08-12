@@ -10,6 +10,8 @@ Tick tracks realtime data from your Mongo database to your client's browser. Thi
 # How to use it
 Ticker supports templates by default. To use a Template function  within your `gos` app functions add the prefix `net_<function name>` to your function name.
 
+Checkout Tick [Sample](https://github.com/cheikhshift/tick-tutorial) project.
+
 ### Import Ticker framework
 
 	<import src="github.com/cheikhshift/tick/gos.gxml"/>
