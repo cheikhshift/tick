@@ -1,6 +1,5 @@
 # Ticker - Live data streams on Golang
 ![](https://cdn.xl.thumbs.canstockphoto.com/canstock22242451.jpg)
-![enter image description here](https://camo.githubusercontent.com/ed1230a48b6946283ee0d76185a726b49ba58254/68747470733a2f2f7472617669732d63692e6f72672f746f6f6c732f676f6465702e737667)
 
 This Gopher Sauce framework requires [Gopher sauce](https://github.com/cheikhshift/Gopher-Sauce) to work as well as a notion of its template engine.
 
